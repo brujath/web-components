@@ -16,12 +16,17 @@ class ToolTip extends HTMLElement {
     span.addEventListener('mouseenter', this._showTip);
     span.addEventListener('mouseleave', this._removeTip);
     this.appendChild(span);
+    this.style.position = 'relative';
   }
 
   _showTip = () => {
     //arrow function to keep context of our element
     this._toolTipContainer = document.createElement('div');
     this._toolTipContainer.textContent = this._toolTipText;
+    this._toolTipContainer.style.background = 'black';
+    this._toolTipContainer.style.color = 'white';
+    this._toolTipContainer.style.position = 'absolute';
+    this._toolTipContainer.style.zIndex = 1;
     this.appendChild(this._toolTipContainer);
   }
 
