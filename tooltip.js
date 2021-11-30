@@ -31,10 +31,6 @@ class ToolTip extends HTMLElement {
     //arrow function to keep context of our element
     this._toolTipContainer = document.createElement('div');
     this._toolTipContainer.textContent = this._toolTipText;
-    this._toolTipContainer.style.background = 'black';
-    this._toolTipContainer.style.color = 'white';
-    this._toolTipContainer.style.position = 'absolute';
-    this._toolTipContainer.style.zIndex = 1;
     this.shadowRoot.appendChild(this._toolTipContainer);
   }
 

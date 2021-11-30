@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web components</title>
     <script src="./tooltip.js"></script>
     <style>
-        span {
-            color: green;
-        }
+      span {
+        color: green;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <template id="wc-tooltip">
-        <style>
-            span {
-                color: red;
-            }
-        </style>
-        <span>
-            (?)
-        </span>
+      <style>
+        span {
+          color: red;
+        }
+        div {
+          background-color: black;
+          color: white;
+          position: absolute;
+          z-index: 1;
+          padding: 10px;
+        }
+      </style>
+      <slot></slot>
+      <!-- <slot name='wc-text'>Some default</slot> -->
+      <span> (?) </span>
     </template>
-    <p>Some example<wc-tooltip text="Tooltip text for this!!">here</wc-tooltip></p>
-    <p>Some example two<wc-tooltip>here</wc-tooltip></p>
-</body>
+    <p>
+      Some example<wc-tooltip text="Tooltip text for this!!">here</wc-tooltip>
+    </p>
+    <p>Some example two<wc-tooltip></wc-tooltip></p>
+    <!-- <p>
+      Some example two<wc-tooltip>
+        <span slot="wc-text">here</span>
+      </wc-tooltip>
+    </p> -->
+  </body>
 </html>
