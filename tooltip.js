@@ -3,6 +3,7 @@ class ToolTip extends HTMLElement {
     super();
     this._toolTipContainer;
     this._toolTipText = "Please add text attribute for your wc";
+    this.attachShadow({mode: 'open'});
   }
 
   connectedCallback() {
@@ -15,7 +16,7 @@ class ToolTip extends HTMLElement {
     }
     span.addEventListener('mouseenter', this._showTip);
     span.addEventListener('mouseleave', this._removeTip);
-    this.appendChild(span);
+    this.shadowRoot.appendChild(span);
     this.style.position = 'relative';
   }
 
@@ -27,11 +28,11 @@ class ToolTip extends HTMLElement {
     this._toolTipContainer.style.color = 'white';
     this._toolTipContainer.style.position = 'absolute';
     this._toolTipContainer.style.zIndex = 1;
-    this.appendChild(this._toolTipContainer);
+    this.shadowRoot.appendChild(this._toolTipContainer);
   }
 
   _removeTip = () => {
-    this.removeChild(this._toolTipContainer);
+    this.shadowRoot.removeChild(this._toolTipContainer);
   }
 }
 
