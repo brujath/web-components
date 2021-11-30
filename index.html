@@ -6,8 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web components</title>
     <script src="./tooltip.js"></script>
+    <style>
+        span {
+            color: green;
+        }
+    </style>
 </head>
 <body>
+    <template id="wc-tooltip">
+        <style>
+            span {
+                color: red;
+            }
+        </style>
+        <span>
+            (?)
+        </span>
+    </template>
     <p>Some example<wc-tooltip text="Tooltip text for this!!">here</wc-tooltip></p>
     <p>Some example two<wc-tooltip>here</wc-tooltip></p>
 </body>
