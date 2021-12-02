@@ -4,6 +4,8 @@ class ToolTip extends HTMLElement {
   }
 
   connectedCallback() {
+    //triggered when element is attached to dom
+    //use for dom initializations
     var span = document.createElement("span");
     span.textContent = ' (?)';
     this.appendChild(span);
