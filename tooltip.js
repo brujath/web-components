@@ -17,9 +17,16 @@ class ToolTip extends HTMLElement {
         z-index: 1;
         padding: 10px;
       }
+
+      :host {
+        background-color: #bbb;
+      }
+
+      ::slotted(.welcome) {
+        border: 1px solid black;
+      }
     </style>
     <slot></slot>
-    <!-- <slot name='wc-text'>Some default</slot> -->
     <span> (?) </span>
     `
   }
