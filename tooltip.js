@@ -18,8 +18,12 @@ class ToolTip extends HTMLElement {
         padding: 10px;
       }
 
-      :host {
+      :host(.host) {
         background-color: #bbb;
+      }
+
+      :host-context(p.example) {
+        font-size: 18px;
       }
 
       ::slotted(.welcome) {
