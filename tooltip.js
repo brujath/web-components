@@ -2,6 +2,7 @@ var $ = document.querySelector.bind(document);
 class ToolTip extends HTMLElement {
   constructor() {
     super();
+    this._toolTipIcon;
     this._toolTipContainer;
     this._toolTipText = "Please add text attribute for your wc";
     this.attachShadow({ mode: "open" });
@@ -43,11 +44,16 @@ class ToolTip extends HTMLElement {
     if (this.getAttribute("text")) {
       this._toolTipText = this.getAttribute("text");
     }
-    var span = this.shadowRoot.querySelector("span");
-    span.addEventListener("mouseenter", this._showTip);
-    span.addEventListener("mouseleave", this._removeTip);
-    this.shadowRoot.appendChild(span);
+    this._toolTipIcon = this.shadowRoot.querySelector("span");
+    this._toolTipIcon.addEventListener("mouseenter", this._showTip);
+    this._toolTipIcon.addEventListener("mouseleave", this._removeTip);
     this.style.position = "relative";
+  }
+
+  disconnectedCallback() {
+    console.log('disconnected');
+    this._toolTipIcon.removeEventListener("mouseenter", this._showTip);
+    this._toolTipIcon.removeEventListener("mouseleave", this._removeTip);
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
