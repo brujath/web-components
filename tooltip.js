@@ -5,11 +5,23 @@ class ToolTip extends HTMLElement {
     this._toolTipContainer;
     this._toolTipText = "Please add text attribute for your wc";
     this.attachShadow({mode: 'open'});
-    
-    var toolTipTemplate = $('#wc-tooltip');
-    //toolTipTemplate.content.clone(true) is used to make a copy of the template 
-    //.cloneNode(true) is used to figure out if it's a deep copy or not.
-    this.shadowRoot.appendChild(toolTipTemplate.content.cloneNode(true));
+    this.shadowRoot.innerHTML = `
+    <style>
+      span {
+        color: red;
+      }
+      div {
+        background-color: black;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        padding: 10px;
+      }
+    </style>
+    <slot></slot>
+    <!-- <slot name='wc-text'>Some default</slot> -->
+    <span> (?) </span>
+    `
   }
 
   connectedCallback() {
