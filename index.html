@@ -14,23 +14,6 @@
     </style>
   </head>
   <body>
-    <template id="wc-tooltip">
-      <style>
-        span {
-          color: red;
-        }
-        div {
-          background-color: black;
-          color: white;
-          position: absolute;
-          z-index: 1;
-          padding: 10px;
-        }
-      </style>
-      <slot></slot>
-      <!-- <slot name='wc-text'>Some default</slot> -->
-      <span> (?) </span>
-    </template>
     <p>
       Some example<wc-tooltip text="Tooltip text for this!!">here</wc-tooltip>
     </p>
