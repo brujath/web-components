@@ -7,22 +7,39 @@
     <title>Web components</title>
     <script src="./tooltip.js"></script>
     <script src="./confirmLink.js"></script>
+    <script src="./modal.js"></script>
     <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
       span {
         color: green;
       }
     </style>
   </head>
   <body>
-    <p>
+    <!-- <p>
       Some example<wc-tooltip class="host" text="Tooltip text for this!!">here</wc-tooltip>
     </p>
-    <p class="example">Some example two<wc-tooltip><span class="welcome">welcome</span></wc-tooltip></p>
+    <p class="example">Some example two<wc-tooltip><span class="welcome">welcome</span></wc-tooltip></p> -->
     <!-- <p>
       Some example two<wc-tooltip>
         <span slot="wc-text">here</span>
       </wc-tooltip>
     </p> -->
-    <a is="wc-anchor" href="http://google.com">Google</a>
+    <!-- <a is="wc-anchor" href="http://google.com">Google</a> -->
+    <wc-modal>
+      <div slot="modal-content" class='modal-content'>
+        This is a example for modal component
+      </div>
+    </wc-modal>
+    <script>
+      function openModal() {
+        var modal = document.querySelector('wc-modal');
+        modal.openModal();
+      }
+    </script>
+    <button onclick="openModal()">Open modal</button>
   </body>
 </html>
